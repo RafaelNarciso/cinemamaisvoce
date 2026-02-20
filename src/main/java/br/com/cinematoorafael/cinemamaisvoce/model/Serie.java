@@ -15,8 +15,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "series")
 public class Serie {
-
-
     //regions Atributos
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
