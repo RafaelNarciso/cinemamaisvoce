@@ -1,0 +1,9 @@
+# Maven Wrapper
+/mvnw text eol=lf
+*.cmd text eol=crlf
+
+# Força arquivos Java como texto
+*.java text
+*.xml text
+*.yml text
+*.properties text
