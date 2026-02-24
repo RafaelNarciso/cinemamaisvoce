@@ -42,12 +42,11 @@ public class Principal {
                     8 - Filtrar séries Por temporada e avaliacao
                     9 - buscar episódios por trecho do nome da série
                     
-                    
-                    
                     19 - Buscar top seleção de séries
                     18 - Buscar top séries por gênero
                     0 - Sair
                     """);
+
 
             try {
                 opcao = Integer.parseInt(leitura.nextLine());
