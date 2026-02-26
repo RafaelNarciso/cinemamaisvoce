@@ -21,8 +21,9 @@ public interface SeriesRepository extends JpaRepository<Serie, UUID> {
 
     List<Serie> findByAtoresContainsIgnoreCaseAndAvaliacaoGreaterThanEqual(String nomeAtor,Double avaliacaoMinima);
 
-    List<Serie> findByGenero(Categoria categoria);
+    //List<Serie> findByTop5OrderByAvaliacaoDesc();
 
+    List<Serie> findByGenero(Categoria categoria);
 
     //Trabalhando com JPQL
     @Query("select s from Serie s where s.totalTemporadas <= :totaltemporadas AND s.avaliacao >= :avaliacao order by s.avaliacao desc")
@@ -33,9 +34,19 @@ public interface SeriesRepository extends JpaRepository<Serie, UUID> {
     List<Episodio> episodiosPorTrecho(String trechoEpisodio);
 
 
+    @Query("SELECT e FROM Serie s JOIN s.episodios e WHERE  s = :serie ORDER BY e.avalicao DESC LIMIT 5")
+    List<Episodio> topEpisodiosPorSerie(Serie serie);
 
+    @Query("SELECT e FROM Serie s JOIN s.episodios e WHERE s= :serie AND YEAR(e.dataLancamento) >= :anoLancamento order BY e.dataLancamento DESC")
+    List<Episodio> epsodioPorSerieEAno(Serie serie, int anoLancamento);
 
+    //List<Serie> findTop5ByOrderByEpisodiosDataLancamentoDesc();
+
+    Page<Serie> findTop5ByOrderByEpisodiosDataLancamentoDesc(Pageable pageable);
+
+    //Aqui eu paginando para realizar a buscar conforme eu precisar EX: top5 ou top10 ou top20 etc...
     Page<Serie> findAllByOrderByAvaliacaoDesc(Pageable pageable);
+
 
     Page<Serie> findAll(Pageable pageable);
 

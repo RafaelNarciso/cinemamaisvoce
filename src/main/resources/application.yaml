@@ -19,11 +19,11 @@ spring:
       hibernate:
         format_sql: false
 
-logging:
-  level:
-    root: WARN
-    org.springframework: WARN
-    org.hibernate: WARN
+#logging:
+#  level:
+#    root: WARN
+#    org.springframework: WARN
+#    org.hibernate: WARN
 
 server:
   port: 8080
