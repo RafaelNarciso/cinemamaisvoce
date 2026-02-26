@@ -8,17 +8,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class APP implements CommandLineRunner {
+public class APP  {
 
     @Autowired
     private SeriesRepository repository;
 
     public static void main(String[] args) {SpringApplication.run(APP.class, args);}
 
-    @Override
-    public void run(String... args) throws Exception {
-        Principal principal = new Principal(repository);
-
-        principal.exibeMenu();
-    }
+//    @Override
+//    public void run(String... args) throws Exception {
+//        Principal principal = new Principal(repository);
+//
+//        principal.exibeMenu();
+//    }
 }
